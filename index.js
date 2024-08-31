@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const movieRoutes = require('./routes/movieRoutes');
@@ -19,23 +20,32 @@ mongoose.connect(dburl).then(function (connection) {
     console.log("connected to db");
 }).catch(err => console.log(err));  
 
+app.use(express.static("./public"));
+app.use(cors());
+app.use(express.json());
+
 app.use('/api/users', userRoutes);
 app.use('/api/movies', movieRoutes);
 app.use('/api/theatres', theatreRoutes);
 app.use('/api/shows', showRoutes);
 app.use('/api/bookings', bookingRoute)
 
+app.get("*", function (req, res) {
+    res.sendFile(path.resolve(__dirname, "./public/index.html"));
+  });
 
 app.listen(8081, ()=>{
 
     console.log('Server is running');
 })
 
-const PORT = process.env.PORT || 8081
+// const PORT = process.env.PORT || 8081
 
-const path = require("path");
 
-__dirname = path.resolve();
+
+// const path = require("path");
+
+// __dirname = path.resolve();
 
 // render deployment
-app.use(express.static('./public'))
+// app.use(express.static('./public'))
