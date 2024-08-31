@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }))
 
 
 // const dburl = "mongodb+srv://afrozkhanuak:kSMTeKwFukKdZuEC@cluster0.mh481zy.mongodb.net/Scaler?retryWrites=true&w=majority&appName=Cluster0"
-const dburl = "mongodb+srv://karankumar254:6EwHq9Y4tatrVXon@cluster0.buymhu8.mongodb.net/"
+const dburl = "mongodb+srv://afrozkhanuak:kSMTeKwFukKdZuEC@cluster0.mh481zy.mongodb.net/"
 
 // mongodb+srv://karankumar254:6EwHq9Y4tatrVXon@cluster0.buymhu8.mongodb.net/
 
